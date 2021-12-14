@@ -1,4 +1,10 @@
 ### Java template
+
+#nosey
+./idea/compiler.xml
+./idea/jarRepository.xml
+./idea/misc.xml
+
 # Compiled class file
 *.class
 
