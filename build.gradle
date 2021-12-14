@@ -20,6 +20,8 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'java-library'
+//for multiproject build to include in the jar
+apply plugin: 'application'
 group 'io.itzbenz'
 version '1.0'
 try {
