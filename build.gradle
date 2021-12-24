@@ -82,6 +82,9 @@ dependencies {
     compileOnly group: 'org.jetbrains', name: 'annotations', version: '21.0.1'
 
 }
+tasks.withType(Jar) {
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+}
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
     options.compilerArgs += ["-Xlint:deprecation", "-g"]//what is this lol
