@@ -1,6 +1,6 @@
 rootProject.name = 'Template-Gralde'
 println "JDK: " + JavaVersion.current()
-
+println "Vendor: " + System.getProperty("java.vendor")
 def use = { ... names ->
     for(String name : names){
         include(name)

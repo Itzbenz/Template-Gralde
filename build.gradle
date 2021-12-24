@@ -103,8 +103,8 @@ tasks.withType(Javadoc) {
 //apply plugin: 'java-library'
 
 //cool
-sourceCompatibility = JavaVersion.VERSION_16
-targetCompatibility = JavaVersion.VERSION_16
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 //group 'io.itzbenz'
 //ersion '1.0'

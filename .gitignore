@@ -1,7 +1,7 @@
 ### Java template
 
 #nosey
-./idea/compiler.xml
+./idea/*.xml
 ./idea/jarRepository.xml
 ./idea/misc.xml
 
