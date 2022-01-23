@@ -77,8 +77,8 @@ test {
 //From Root to every project
 dependencies {
 
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     compileOnly group: 'org.jetbrains', name: 'annotations', version: '21.0.1'
 
 }
@@ -87,7 +87,7 @@ tasks.withType(Jar) {
 }
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
-    options.compilerArgs += ["-Xlint:deprecation", "-g"]//what is this lol
+    options.compilerArgs += ["-Xlint:deprecation"]//what is this lol
 
     options.forkOptions.jvmArgs.addAll([
             '--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED',
@@ -173,4 +173,14 @@ task doingYourJar(type: Jar) {
 }
 task deploy{
     dependsOn doingYourJar
+}
+
+//https://stackoverflow.com/questions/32088966/gradle-generated-startscript-for-windows-produces-input-line-is-too-long
+startScripts {
+    doLast {
+        def winScriptFile = file getWindowsScript()
+        def winFileText = winScriptFile.text
+        winFileText = winFileText.replaceAll('set CLASSPATH=.*', 'rem original CLASSPATH declaration replaced by:\nset CLASSPATH=%APP_HOME%\\\\lib\\\\\\*')
+        winScriptFile.text = winFileText
+    }
 }
